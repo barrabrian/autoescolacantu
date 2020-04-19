@@ -64,7 +64,7 @@ form {
   position: absolute;
   width: 300px;
   height: 60px;
-  top: calc(110px + 50%);
+  top: calc(120px + 50%);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -305,7 +305,7 @@ body.error fieldset {
 }
 
 .br-header .br-right{
-  width: calc(100vw - 100px);
+  width: 100vw;
   text-align: center;
   display: inline-flex;
   flex-direction: row;
