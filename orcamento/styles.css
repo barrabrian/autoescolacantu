@@ -3,6 +3,7 @@ body {
   font-family: sans-serif;
 }
 body fieldset.fieldset, body .btn {
+  -webkit-box-shadow: 0 8px 10px #29a329;
   box-shadow: 0 8px 10px #29a329;
 }
 
@@ -10,6 +11,7 @@ body.error {
   background: #f04000;
 }
 body.error fieldset.fieldset {
+  -webkit-box-shadow: 0 8px 10px #bd3200;
   box-shadow: 0 8px 10px #bd3200;
 }
 
@@ -42,7 +44,9 @@ ul.items {
   height: auto;
   top: 50%;
   left: -60px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 ul.items li {
   width: 8px;
@@ -58,15 +62,24 @@ ul.items li.active {
 }
 
 form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
   width: 300px;
   height: 60px;
   top: calc(120px + 50%);
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 form fieldset.fieldset {
   background: white;
@@ -77,7 +90,11 @@ form fieldset{
   width: 300px;
   border-radius: 3px;
   opacity: 0;
-  transform: scale(0.2);
+  -webkit-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+          transform: scale(0.2);
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 form fieldset input, form fieldset p {
@@ -103,6 +120,8 @@ form fieldset .icon {
   width: 30px;
   height: 30px;
   top: 15px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 form fieldset .icon i {
@@ -123,6 +142,8 @@ form fieldset .icon.right {
 form fieldset .icon.button:hover {
   background: #f2f2f2;
   border-radius: 3px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 form fieldset .btn {
@@ -134,48 +155,98 @@ form fieldset .btn {
 }
 form fieldset .btn:hover {
   background: #f2f2f2;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 form fieldset.enable {
   z-index: 1;
   opacity: 1;
+  -webkit-transition: all 0.5s ease-out 0.2s;
+  -o-transition: all 0.5s ease-out 0.2s;
   transition: all 0.5s ease-out 0.2s;
-  transform: scale(1);
-  animation: enable 0.5s ease-out 0.2s;
+  -webkit-transition-property: all;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation: enable 0.5s ease-out 0.2s;
+          animation: enable 0.5s ease-out 0.2s;
 }
 form fieldset.disable {
   opacity: 0;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  transform: translateY(120px) scale(0.9);
+  -webkit-transform: translateY(120px) scale(0.9);
+      -ms-transform: translateY(120px) scale(0.9);
+          transform: translateY(120px) scale(0.9);
 }
-
 body.error fieldset {
-  transform-origin: 50% 100%;
-  animation: error 0.3s ease-out;
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  -webkit-animation: error 0.3s ease-out;
+          animation: error 0.3s ease-out;
 }
 
-@keyframes enable {
+@-webkit-keyframes enable {
   0% {
     opacity: 0;
-    transform: scale(0.2);
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
   }
   60% {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes enable {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes error {
+  0%, 50%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+  75% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
   }
 }
 @keyframes error {
   0%, 50%, 100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
   }
   75% {
-    transform: rotate(3deg);
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
   }
 }
 /**
@@ -196,7 +267,9 @@ body.error fieldset {
   border-color: #333333;
   border-right: 2px solid;
   border-bottom: 2px solid;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .icon .user {
@@ -204,7 +277,8 @@ body.error fieldset {
   height: 10px;
   bottom: 5px;
   left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
+  -webkit-box-shadow: 0 0 0 2px #333333 inset;
+          box-shadow: 0 0 0 2px #333333 inset;
   border-radius: 6px 6px 3px 3px;
 }
 .icon .user::before {
@@ -212,16 +286,17 @@ body.error fieldset {
   height: 10px;
   top: -9px;
   left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
+  -webkit-box-shadow: 0 0 0 2px #333333 inset;
+          box-shadow: 0 0 0 2px #333333 inset;
   border-radius: 50%;
 }
-
 .icon .letter {
   width: 20px;
   height: 12px;
   top: 9px;
   left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
+  -webkit-box-shadow: 0 0 0 2px #333333 inset;
+          box-shadow: 0 0 0 2px #333333 inset;
   border-radius: 3px;
 }
 .icon .letter::before, .icon .letter::after {
@@ -232,11 +307,15 @@ body.error fieldset {
 }
 .icon .letter::before {
   left: 0;
-  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg);
 }
 .icon .letter::after {
   right: 0;
-  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+          transform: rotate(-30deg);
 }
 
 .icon .lock {
@@ -244,7 +323,8 @@ body.error fieldset {
   height: 16px;
   top: 9px;
   left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
+  -webkit-box-shadow: 0 0 0 2px #333333 inset;
+          box-shadow: 0 0 0 2px #333333 inset;
   border-radius: 3px;
 }
 .icon .lock::before {
@@ -256,14 +336,17 @@ body.error fieldset {
   border-top: 2px solid #333333;
   border-right: 2px solid #333333;
   border-radius: 50%;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 .icon .lock::after {
   width: 6px;
   height: 7px;
   top: 4px;
   left: 7px;
-  box-shadow: 0 0 0 2px #333333 inset;
+  -webkit-box-shadow: 0 0 0 2px #333333 inset;
+          box-shadow: 0 0 0 2px #333333 inset;
 }
 
 .icon .heart {
@@ -272,7 +355,9 @@ body.error fieldset {
   top: 11px;
   left: 7px;
   background: #ff5233;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .icon .heart::before, .icon .heart::after {
   width: 10px;
@@ -294,23 +379,37 @@ body.error fieldset {
 
 
 
-
 .br-header{
   /* height: 100px; */
   background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   /* padding-bottom: 25px; */
 }
 
 .br-header .br-right{
   width: 100vw;
   text-align: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 
 .br-header .br-left{
   width: 100px;
