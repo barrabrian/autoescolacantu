@@ -427,3 +427,17 @@ body.error fieldset {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.btn{
+  position: relative;
+}
+.btn .icon{
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+}
+.btn .icon2{
+  display: inline-block;
+  position: absolute;
+  right: 45px;
+}
