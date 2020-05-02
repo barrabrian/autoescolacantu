@@ -110,25 +110,8 @@ const setFormHeight = () => {
 };
 
 //STEPS BAR CLICK FUNCTION
-DOMstrings.stepsBar.addEventListener('click', e => {
 
-  //check if click target is a step button
-  const eventTarget = e.target;
-
-  if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
-    return;
-  }
-
-  //get active button step number
-  const activeStep = getActiveStep(eventTarget);
-
-  //set all steps before clicked (and clicked too) to active
-  setActiveStep(activeStep);
-
-  //open active panel
-  setActivePanel(activeStep);
-});
-
+var activeStep=0;
 //PREV/NEXT BTNS CLICK
 DOMstrings.stepsForm.addEventListener('click', e => {
 
@@ -146,13 +129,73 @@ DOMstrings.stepsForm.addEventListener('click', e => {
 
   let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
 
-
+  let nextPanel = 0;
 
   if (activePanelNum == 0) {
-    if (document.getElementById('nome').value == "" || document.getElementById('telefone').value == "" ) {
-      document.body.classList.add('error');
-      setTimeout(() => { document.body.classList.remove('error'); }, 1050);
-      ok = false;
+    nextPanel = parseInt(document.getElementById('prod').value, 10);
+  }else if (activePanelNum == 1) {
+    nextPanel = 2;
+    var radios = document.getElementsByName('cnh');
+    for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+        document.getElementById('cnh_title').innerHTML = "CNH tipo " + radios[i].value;
+        if (radios[i].value == "A") {
+          document.getElementById('cnh_price').innerHTML = "R$1.800,00";
+          document.getElementById('cnh_tax_price').innerHTML = "R$186,00";
+          document.getElementById('cnh_total_price').innerHTML = "R$1.986,00";
+          document.getElementById('cnh_cartao').innerHTML = "R$180,00";
+          document.getElementById('cnh_balcao').innerHTML = "R$400,00 + 4x de R$350,00";
+          document.getElementById('cnh_a_show').classList.remove("d-none");
+          document.getElementById('cnh_b_show').classList.add("d-none");
+          document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20A%20%3A)";
+        }
+        if (radios[i].value == "B") {
+          document.getElementById('cnh_price').innerHTML = "R$1.900,00";
+          document.getElementById('cnh_tax_price').innerHTML = "R$186,00";
+          document.getElementById('cnh_total_price').innerHTML = "R$2.086,00";
+          document.getElementById('cnh_cartao').innerHTML = "R$190,00";
+          document.getElementById('cnh_balcao').innerHTML = "R$400,00 + 5x de R$300,00";
+          document.getElementById('cnh_a_show').classList.add("d-none");
+          document.getElementById('cnh_b_show').classList.remove("d-none");
+          document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20B%20%3A)";
+
+        }
+        if (radios[i].value == "AB") {
+          document.getElementById('cnh_price').innerHTML = "R$2.800,00";
+          document.getElementById('cnh_tax_price').innerHTML = "R$236,00";
+          document.getElementById('cnh_total_price').innerHTML = "R$3.036,00";
+          document.getElementById('cnh_cartao').innerHTML = "R$280,00";
+          document.getElementById('cnh_balcao').innerHTML = "R$500,00 + 4x de R$460,00";
+          document.getElementById('cnh_a_show').classList.remove("d-none");
+          document.getElementById('cnh_b_show').classList.remove("d-none");
+          document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20AB%20%3A)";
+        }
+        break;
+      }
+    }
+  } else if (activePanelNum == 3) {
+    nextPanel = 4;
+    var radios = document.getElementsByName('add');
+    for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+        document.getElementById('inc_title').innerHTML = "CNH tipo " + radios[i].value;
+        if (radios[i].value == "A") {
+          document.getElementById('inc_price').innerHTML = "R$1.000,00";
+          document.getElementById('inc_cartao').innerHTML = "R$250,00";
+          document.getElementById('inc_a_show').classList.remove("d-none");
+          document.getElementById('inc_b_show').classList.add("d-none");
+          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Gostaria%20de%20incluir%20o%20tipo%20A%20na%20minha%20CNH";
+        }
+        if (radios[i].value == "B") {
+          document.getElementById('inc_price').innerHTML = "R$1.200,00";
+          document.getElementById('inc_cartao').innerHTML = "R$300,00";
+          document.getElementById('inc_a_show').classList.add("d-none");
+          document.getElementById('inc_b_show').classList.remove("d-none");
+          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Gostaria%20de%20incluir%20o%20tipo%20B%20na%20minha%20CNH";
+
+        }
+        break;
+      }
     }
   }
 
@@ -160,16 +203,22 @@ DOMstrings.stepsForm.addEventListener('click', e => {
 
     //set active step and active panel onclick
     if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
-      activePanelNum--;
-
+      if(activeStep == 1){
+        activePanelNum = 0;
+      }else {
+        activePanelNum--;
+      }
+      activeStep--;
     } else {
 
-      activePanelNum++;
+      activeStep++;
+      activePanelNum = nextPanel;
 
     }
 
-    setActiveStep(activePanelNum);
+    setActiveStep(activeStep);
     setActivePanel(activePanelNum);
+
   }
 
 });
