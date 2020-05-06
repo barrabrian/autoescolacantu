@@ -150,22 +150,22 @@ DOMstrings.stepsForm.addEventListener('click', e => {
           document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20A%20%3A)";
         }
         if (radios[i].value == "B") {
-          document.getElementById('cnh_price').innerHTML = "R$1.900,00";
+          document.getElementById('cnh_price').innerHTML = "R$1.800,00";
           document.getElementById('cnh_tax_price').innerHTML = "R$186,00";
-          document.getElementById('cnh_total_price').innerHTML = "R$2.086,00";
+          document.getElementById('cnh_total_price').innerHTML = "R$1.986,00";
           document.getElementById('cnh_cartao').innerHTML = "R$190,00";
-          document.getElementById('cnh_balcao').innerHTML = "R$400,00 + 5x de R$300,00";
+          document.getElementById('cnh_balcao').innerHTML = "R$400,00 + 5x de R$280,00";
           document.getElementById('cnh_a_show').classList.add("d-none");
           document.getElementById('cnh_b_show').classList.remove("d-none");
           document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20B%20%3A)";
 
         }
         if (radios[i].value == "AB") {
-          document.getElementById('cnh_price').innerHTML = "R$2.800,00";
+          document.getElementById('cnh_price').innerHTML = "R$2.680,00";
           document.getElementById('cnh_tax_price').innerHTML = "R$236,00";
-          document.getElementById('cnh_total_price').innerHTML = "R$3.036,00";
-          document.getElementById('cnh_cartao').innerHTML = "R$280,00";
-          document.getElementById('cnh_balcao').innerHTML = "R$500,00 + 4x de R$460,00";
+          document.getElementById('cnh_total_price').innerHTML = "R$2.916,00";
+          document.getElementById('cnh_cartao').innerHTML = "R$268,00";
+          document.getElementById('cnh_balcao').innerHTML = "R$500,00 + 5x de R$436,00";
           document.getElementById('cnh_a_show').classList.remove("d-none");
           document.getElementById('cnh_b_show').classList.remove("d-none");
           document.getElementById('cnh_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20CNH%20tipo%20AB%20%3A)";
@@ -184,14 +184,14 @@ DOMstrings.stepsForm.addEventListener('click', e => {
           document.getElementById('inc_cartao').innerHTML = "R$250,00";
           document.getElementById('inc_a_show').classList.remove("d-none");
           document.getElementById('inc_b_show').classList.add("d-none");
-          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Gostaria%20de%20incluir%20o%20tipo%20A%20na%20minha%20CNH";
+          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20inclus%C3%A3o%20do%20tipo%20A%20%3A)";
         }
         if (radios[i].value == "B") {
           document.getElementById('inc_price').innerHTML = "R$1.200,00";
           document.getElementById('inc_cartao').innerHTML = "R$300,00";
           document.getElementById('inc_a_show').classList.add("d-none");
           document.getElementById('inc_b_show').classList.remove("d-none");
-          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Gostaria%20de%20incluir%20o%20tipo%20B%20na%20minha%20CNH";
+          document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20inclus%C3%A3o%20do%20tipo%20B%20%3A)";
 
         }
         break;
