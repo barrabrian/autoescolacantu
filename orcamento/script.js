@@ -195,8 +195,8 @@ DOMstrings.stepsForm.addEventListener('click', e => {
 
         }
         if (radios[i].value == "D") {
-          document.getElementById('inc_price').innerHTML = "R$1.900,00";
-          document.getElementById('inc_cartao').innerHTML = "R$475,00";
+          document.getElementById('inc_price').innerHTML = "R$1.570,00";
+          document.getElementById('inc_cartao').innerHTML = "R$392,50";
           document.getElementById('inc_a_show').classList.add("d-none");
           document.getElementById('inc_b_show').classList.remove("d-none");
           document.getElementById('inc_link').href = "https://api.whatsapp.com/send?phone=5545998628681&text=Bom%20dia!%20Quero%20desconto%20na%20inclus%C3%A3o%20do%20tipo%20D%20%3A)";
